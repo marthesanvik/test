@@ -1,0 +1,154 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : null,
+    "version" : "1.0.0",
+    "title" : null,
+    "termsOfService" : null,
+    "contact" : null,
+    "license" : null
+  },
+  "host" : "api.cristin.no",
+  "basePath" : "/v2",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/results" : {
+      "get" : {
+        "tags" : [ "GET_CR_Results" ],
+        "summary" : null,
+        "description" : null,
+        "operationId" : "GET_CR_Results",
+        "produces" : [ "application/json" ],
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : null,
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/GET_CR_Results"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "GET_CR_Results##category##name" : {
+      "properties" : {
+        "en" : {
+          "type" : "string"
+        }
+      }
+    },
+    "GET_CR_Results##category" : {
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "GET_CR_Results##contributors##preview" : {
+      "properties" : {
+        "first_name" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        }
+      }
+    },
+    "GET_CR_Results##contributors" : {
+      "properties" : {
+        "url" : {
+          "type" : "string"
+        },
+        "count" : {
+          "type" : "number",
+          "format" : "int32"
+        },
+        "preview" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/GET_CR_Results##contributors##preview"
+          }
+        }
+      }
+    },
+    "GET_CR_Results##title" : {
+      "properties" : {
+        "en" : {
+          "type" : "string"
+        }
+      }
+    },
+    "GET_CR_Results##event##arranged_by" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "GET_CR_Results##event" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "location" : {
+          "type" : "string"
+        },
+        "date_from" : {
+          "type" : "string"
+        },
+        "date_to" : {
+          "type" : "string"
+        },
+        "arranged_by" : {
+          "$ref" : "#/definitions/GET_CR_Results##event##arranged_by"
+        }
+      }
+    },
+    "GET_CR_Results" : {
+      "properties" : {
+        "category" : {
+          "$ref" : "#/definitions/GET_CR_Results##category"
+        },
+        "contributors" : {
+          "$ref" : "#/definitions/GET_CR_Results##contributors"
+        },
+        "cristin_result_id" : {
+          "type" : "string"
+        },
+        "original_language" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "year_published" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        },
+        "organiser" : {
+          "type" : "string"
+        },
+        "event" : {
+          "$ref" : "#/definitions/GET_CR_Results##event"
+        }
+      }
+    }
+  }
+}
